@@ -26,15 +26,17 @@ Create a menu allowing for the following:
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define BUFFSIZE 10
 
 typedef struct Student //lets make us a bunch of info for our students
 	{
 		char Name[50];
-		char Initials[2];
+		char Initials[3];
 		char favArtist[50];
 		char dreamCar[80];
 		struct Student * next_node;
 	}node;
+
 
 //main function that gives us our options
 int main() 
@@ -54,58 +56,88 @@ int main()
 	//lets build this linked list
 	strcpy(Elias_Perez->Name, "Elias Perez");
 	strcpy(Elias_Perez->Initials, "EP");
+	//null terminate
+	Elias_Perez->Initials[3] = '0/';
 	strcpy(Elias_Perez->favArtist, "Calvin Harris"); //Elias Perez
 	strcpy(Elias_Perez->dreamCar, "Citroen Survolt");
 	Elias_Perez->next_node = NULL;
 
 	strcpy(Kyle_Yoder->Name, "Kyle Yoder");
 	strcpy(Kyle_Yoder->Initials, "KY");
+	//null terminate
+	Kyle_Yoder->Initials[3] = '0/';
 	strcpy(Kyle_Yoder->favArtist, "Earth, Wind and Fire"); //Kyle_Yoder
 	strcpy(Kyle_Yoder->dreamCar, "Mitsubishi Lancer");
 	Kyle_Yoder->next_node = Elias_Perez;
 
 	strcpy(Robert_Graham->Name, "Robert Graham");
 	strcpy(Robert_Graham->Initials, "RG");
+	//null terminate
+	Robert_Graham->Initials[3] = '0/';
 	strcpy(Robert_Graham->favArtist, "Linkin Park"); //robert graham
 	strcpy(Robert_Graham->dreamCar, "Honda Civic");
 	Robert_Graham->next_node = Kyle_Yoder;
 
-	strcpy(Donnie_Macary, "Donnie Macary");
-	strcpy(Donnie_Macary, "DM");
-	strcpy(Donnie_Macary, "Offspring"); //Donnie macary
-	strcpy(Donnie_Macary, "Dodge Charger");
+	strcpy(Donnie_Macary->Name, "Donnie Macary");
+	strcpy(Donnie_Macary->Initials, "DM");
+	//null terminate
+	Donnie_Macary->Initials[3] = '0/';
+	strcpy(Donnie_Macary->favArtist, "Offspring"); //Donnie macary
+	strcpy(Donnie_Macary->dreamCar, "Dodge Charger");
 	Donnie_Macary->next_node = Robert_Graham;
 
-	strcpy(Mane_Mann, "Mane Mann");
+	strcpy(Mane_Mann->Name, "Mane Mann");
 	strcpy(Mane_Mann->Initials, "MM");
-	strcpuy(Mane_Mann, "Earth, Wind and Fire"); //mane mann
-	strcpy(Mane_Mann, "Mitsubishi Eclipse");
+	//null terminate
+	Mane_Mann->Initials[3] = '0/';
+	strcpy(Mane_Mann->favArtist, "Earth, Wind and Fire"); //mane mann
+	strcpy(Mane_Mann->dreamCar, "Mitsubishi Eclipse");
 	Mane_Mann->next_node = Donnie_Macary;
 
-	strcpy(Tom_Burright, "Tom Burright");
-	strcpy(Tom_Burright, "TB");
-	strcpy(Tom_Burright, "Avenged Sevenfold"); //tom burright
-	strcpy(Tom_Burright, "Suzuki Ninja");
+	strcpy(Tom_Burright->Name, "Tom Burright");
+	strcpy(Tom_Burright->Initials, "TB");
+	//null terminate
+	Tom_Burright->Initials[3] = '0/';
+	strcpy(Tom_Burright->favArtist, "Avenged Sevenfold"); //tom burright
+	strcpy(Tom_Burright->dreamCar, "Suzuki Ninja");
 	Tom_Burright->next_node = Mane_Mann;
 
 	strcpy(Zackery_Vering->Name, "Zackery Vering");
 	strcpy(Zackery_Vering->Initials, "ZV");
-	strcpy(Zackery_Vering, "Metallica"); //zackery vering
-	strcpy(Zackery_Vering, "Mustang GT500");
+	//null terminate
+	Zackery_Vering->Initials[3] = '0/';
+	strcpy(Zackery_Vering->favArtist, "Metallica"); //zackery vering
+	strcpy(Zackery_Vering->dreamCar, "Mustang GT500");
 	Zackery_Vering->next_node = Tom_Burright;
 
 	strcpy(Will_Kreiser->Name, "Will Kreiser");
-	strcpy(Will_Kreiser, "WK");
-	strcpy(Will_Kreiser, "Billy Idol"); //Will Kreiser
-	strcpy(Will_Kreiser, "Subaru BRZ");
+	strcpy(Will_Kreiser->Initials, "WK");
+	//null terminate
+	Will_Kreiser->Initials[3] = '0/';
+	strcpy(Will_Kreiser->favArtist, "Billy Idol"); //Will Kreiser
+	strcpy(Will_Kreiser->dreamCar, "Subaru BRZ");
 	Will_Kreiser->next_node = Zackery_Vering;
 
-	struct Student Micheal_Yost = { "Micheal Yost", "MY", "Red Hot Chili Peppers", "Subaru WRX STI", Will_Kreiser
-	struct Student Richard_Smith = { "Richard Smith", "RS", "Micheal Jackson", "Ford F350", Micheal_Yost
+	strcpy(Micheal_Yost->Name, "Micheal Yost");
+	strcpy(Micheal_Yost->Initials, "MY");
+	//null terminate
+	Micheal_Yost->Initials[3] = '0/';
+	strcpy(Micheal_Yost->favArtist, "Red Hot Chili Peppers"); //micheal yost
+	strcpy(Micheal_Yost->dreamCar, "Subaru WRX STI");
+	Micheal_Yost->next_node = Will_Kreiser;
+
+	strcpy(Richard_Smith->Name, "Richard Smith");
+	strcpy(Richard_Smith->Initials, "RS");
+	//null terminate
+	Richard_Smith->Initials[3] = '0/';
+	strcpy(Richard_Smith->favArtist, "Micheal Jackson"); //richard smith
+	strcpy(Richard_Smith->dreamCar, "Ford F350");
+	Richard_Smith->next_node = Micheal_Yost;
 
 	//create a variable to change the initial input, as well as secondary inputs to run off of
 	int initialInput;
 	int secondaryInput;
+	char *whichStudent[3];
 
 	//we are going to print out a message prompting the user for a function to call
 	printf("Welcome! Please select an option to display\n");
@@ -119,11 +151,40 @@ int main()
 	{
 		//case one contains the print_all
 	case 1:
-		//for loop to print out all the students information
-		for (int i = 0; i < 10; i++)
+		print_all(Richard_Smith, BUFFSIZE);
+		break;
+		//case two contains the print one data member
+	case 2:
+		printf("What data do you want to see?\n");
+		printf("1. Initials\n");
+		printf("2. Favorite Music Artist\n");
+		printf("3. Dream Car\n");
+		scanf("%d", &secondaryInput);
+		switch (secondaryInput)
 		{
-			printf("%s %s %s %s", (Elias_Perez.Name), (Elias_Perez.Initials), (Elias_Perez.favArtist), (Elias_Perez.dreamCar));
+		case 1:
+			print_one_data(Richard_Smith, BUFFSIZE, secondaryInput);
+			break;
+		case 2:
+			print_one_data(Richard_Smith, BUFFSIZE, secondaryInput);
+			break;
+		case 3:
+			print_one_data(Richard_Smith, BUFFSIZE, secondaryInput);
+			break;
+		default:
+			printf("please enter 1, 2, or 3 to select an option\n");
 		}
+		break;
+		//case three allows the user to select a specific student
+	case 3:
+		printf("Please enter the initials of a student to receive their information\n");
+		scanf("%s", &whichStudent);
+		//null terminate the end
+		whichStudent[2] = '0/';
+		print_just_one(Richard_Smith, BUFFSIZE, whichStudent);
+		break;
+	default:
+		printf("please select 1, 2, or 3 and press enter to make a selection");
 	}
 
 	return 0;
@@ -132,17 +193,91 @@ int main()
 //how about we start with printing all the students and all of their data?
 int print_all(node *n, int buffSize)
 {
-	
+	if (n == NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		while (n != NULL)
+		{
+			printf("%s\n %s\n %s\n %s\n", n->Name, n->Initials, n->favArtist, n->dreamCar);
+			n = n->next_node;
+		}
+		return 1;
+	}
 }
 
 //now we shall make it print out all of the students but only one data member(fav car or artist, etc.)
-int print_one_data(char *studentArray, int buffSize)
+int print_one_data(node *n, int buffSize, int selection)
 {
-
+	//now build a switch statement to hold the chosen data member
+	switch (selection)
+	{
+	case 1:
+		while (n != NULL)
+		{
+			printf("%s %s\n", n->Name, n->Initials);
+			n = n->next_node;
+		}
+		return 1;
+		break;
+	case 2:
+		while (n != NULL)
+		{
+			printf("%s %s\n", n->Name, n->favArtist);
+			n = n->next_node;
+		}
+		return 1;
+		break;
+	case 3:
+		while (n != NULL)
+		{
+			printf("%s %s\n", n->Name, n->dreamCar);
+			n = n->next_node;
+		}
+		return 1;
+		break;
+	default:
+		printf("ERROR: please close program and try again");
+		return 0;
+		break;
+	}
 }
 
 //now we must allow it to print a specific student and their data (im thinking student iteration?)
-int print_just_one(char *studentArray, int buffSize)
+int print_just_one(node *n, int buffSize, char *whichStudent)
 {
+	//lets test to see if they entered the correct initials
+	int studentCheck = 0;
 
+	//now we will check the initials against our node
+	while (n != NULL)
+	{
+		if ((whichStudent[0] == (n->Initials[0])) && (whichStudent[1] == (n->Initials[1])))
+		{
+			//correct entry
+			studentCheck = 1;
+
+			//print dat crap yo
+			printf("%s %s %s %s\n", n->Name, n->Initials, n->favArtist, n->dreamCar);
+			break;
+		}
+		else
+		{		
+			//next node yo
+			n = n->next_node;
+		}
+	}
+
+	if (studentCheck == 0)
+	{
+		//false entry
+		printf("incorrect entry! Please close the program and try again");
+		return 0;
+	}
+	else 
+	{
+		return 1;
+	}
 }
